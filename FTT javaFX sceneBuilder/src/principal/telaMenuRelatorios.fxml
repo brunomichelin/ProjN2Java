@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -30,17 +33,51 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Cadastros">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" text="Relatórios">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" text="Button" />
+            <Label prefHeight="35.0" prefWidth="203.0" text="Menu de relatórios" textFill="#1b1dcc">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <SplitPane>
+               <items>
+                  <SplitPane dividerPositions="0.6428571428571429">
+                     <items>
+                        <ScrollPane prefViewportHeight="420.0" prefViewportWidth="798.0">
+                           <content>
+                              <ToolBar>
+                                 <items>
+                                    <Pane>
+                                       <children>
+                                          <ToolBar />
+                                       </children>
+                                    </Pane>
+                                    <ScatterChart prefHeight="413.0" prefWidth="468.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </ScatterChart>
+                                 </items>
+                              </ToolBar>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane prefViewportHeight="420.0" prefViewportWidth="396.0">
+                           <content>
+                              <TableView prefHeight="418.0" prefWidth="280.0">
+                                 <columns>
+                                    <TableColumn prefWidth="90.0" text="Objeto" />
+                                    <TableColumn prefWidth="93.0" text="Atributos" />
+                                    <TableColumn prefWidth="94.0" text="Operador" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </items>
+                  </SplitPane>
+               </items>
+            </SplitPane>
          </children>
       </VBox>
    </center>
