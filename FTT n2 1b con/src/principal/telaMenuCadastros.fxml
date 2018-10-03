@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#btnClientes_OnClick" text="Clientes">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnFuncionarios" mnemonicParsing="false" onAction="#btnFuncionarios_OnClick" text="Funcionários">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnFornecedores" mnemonicParsing="false" onAction="#btnFornecedores_OnClick" text="Fornecedores">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="btnPecas" mnemonicParsing="false" onAction="#btnPecas_OnClick" text="Peças">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnPedidos" mnemonicParsing="false" onAction="#btnPedidos_OnClick" text="Pedidos">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnServicos" mnemonicParsing="false" onAction="#btnServicos_OnClick" text="Serviços">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnOrcamentos" mnemonicParsing="false" onAction="#btnOrcamentos_OnClick" text="Orçamentos">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnFerramentas" mnemonicParsing="false" onAction="#btnFerramentas_OnClick" text="Ferramentas" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

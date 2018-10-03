@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaOneController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="35.0" prefWidth="203.0" text="Menu de relatórios" textFill="#1b1dcc">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <SplitPane>
+               <items>
+                  <SplitPane dividerPositions="0.6428571428571429">
+                     <items>
+                        <ScrollPane prefViewportHeight="420.0" prefViewportWidth="798.0">
+                           <content>
+                              <ToolBar>
+                                 <items>
+                                    <Pane>
+                                       <children>
+                                          <ToolBar />
+                                       </children>
+                                    </Pane>
+                                    <ScatterChart prefHeight="413.0" prefWidth="468.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </ScatterChart>
+                                 </items>
+                              </ToolBar>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane prefViewportHeight="420.0" prefViewportWidth="396.0">
+                           <content>
+                              <TableView prefHeight="418.0" prefWidth="280.0">
+                                 <columns>
+                                    <TableColumn prefWidth="90.0" text="Objeto" />
+                                    <TableColumn prefWidth="93.0" text="Atributos" />
+                                    <TableColumn prefWidth="94.0" text="Operador" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </items>
+                  </SplitPane>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

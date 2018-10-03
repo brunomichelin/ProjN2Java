@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="647.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
+            <Button layoutX="754.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
+            <Button layoutX="833.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
+            <Button layoutX="919.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
+            <Label layoutX="18.0" layoutY="20.0" text="Nome:" />
+            <Label layoutX="18.0" layoutY="66.0" text="Funcionário:" />
+            <Label layoutX="773.0" layoutY="66.0" text="Custo:" />
+            <Label layoutX="10.0" layoutY="225.0" text="Lista de Serviços:" />
+            <TextField layoutX="77.0" layoutY="14.0" prefHeight="39.0" prefWidth="434.0" />
+            <TextField layoutX="831.0" layoutY="60.0" prefHeight="39.0" prefWidth="163.0" />
+            <TableView layoutX="7.0" layoutY="254.0" prefHeight="497.0" prefWidth="628.0">
+              <columns>
+                <TableColumn prefWidth="285.0" text="Nome" />
+                  <TableColumn prefWidth="122.0" text="Custo" />
+                  <TableColumn prefWidth="129.0" text="Valor" />
+                  <TableColumn prefWidth="91.0" text="Horas" />
+              </columns>
+            </TableView>
+            <ComboBox layoutX="129.0" layoutY="60.0" prefHeight="39.0" prefWidth="292.0" />
+            <TextField layoutX="831.0" layoutY="105.0" prefHeight="39.0" prefWidth="163.0" />
+            <Label layoutX="775.0" layoutY="111.0" text="Valor:" />
+            <ComboBox layoutX="129.0" layoutY="107.0" prefHeight="39.0" prefWidth="292.0" />
+            <Label layoutX="24.0" layoutY="113.0" text="Ferramenta:" />
+            <Button layoutX="439.0" layoutY="105.0" mnemonicParsing="false" text="Incluir" />
+            <Button layoutX="439.0" layoutY="151.0" mnemonicParsing="false" text="Incluir" />
+            <Label layoutX="71.0" layoutY="157.0" text="Peça:" />
+            <ComboBox layoutX="129.0" layoutY="152.0" prefHeight="39.0" prefWidth="292.0" />
+            <Button layoutX="439.0" layoutY="60.0" mnemonicParsing="false" text="Incluir" />
+            <Label layoutX="772.0" layoutY="157.0" text="Horas:" />
+            <TextField layoutX="831.0" layoutY="152.0" prefHeight="39.0" prefWidth="163.0" />
+            <TableView layoutX="647.0" layoutY="254.0" prefHeight="139.0" prefWidth="368.0">
+               <columns>
+                  <TableColumn prefWidth="367.0" text="Nome" />
+               </columns>
+            </TableView>
+            <Label layoutX="647.0" layoutY="225.0" text="Lista de Peças:" />
+            <Label layoutX="647.0" layoutY="400.0" text="Lista de Ferramentas:" />
+            <TableView layoutX="642.0" layoutY="426.0" prefHeight="139.0" prefWidth="368.0">
+               <columns>
+                  <TableColumn prefWidth="367.0" text="Nome" />
+               </columns>
+            </TableView>
+            <TableView layoutX="642.0" layoutY="598.0" prefHeight="153.0" prefWidth="368.0">
+               <columns>
+                  <TableColumn prefWidth="367.0" text="Nome" />
+               </columns>
+            </TableView>
+            <Label layoutX="647.0" layoutY="571.0" text="Lista de Ferramentas:" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

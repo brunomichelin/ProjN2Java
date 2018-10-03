@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaPedidosController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="647.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
+            <Button layoutX="754.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
+            <Button layoutX="833.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
+            <Button layoutX="919.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
+            <Label layoutX="18.0" layoutY="20.0" text="Ordem:" />
+            <Label layoutX="18.0" layoutY="66.0" text="Funcionário:" />
+            <Label layoutX="765.0" layoutY="66.0" text="Custo:" />
+            <Label layoutX="7.0" layoutY="442.0" text="Lista de Itens de Pedido:" />
+            <TextField layoutX="85.0" layoutY="14.0" prefHeight="39.0" prefWidth="426.0" />
+            <TextField layoutX="831.0" layoutY="60.0" prefHeight="39.0" prefWidth="163.0" />
+            <TableView layoutX="7.0" layoutY="476.0" prefHeight="274.0" prefWidth="1007.0">
+              <columns>
+                <TableColumn prefWidth="384.0" text="Nome" />
+                  <TableColumn prefWidth="373.0" text="Requisitante" />
+                  <TableColumn minWidth="0.0" prefWidth="104.0" text="Qtde Itens" />
+                  <TableColumn minWidth="7.0" prefWidth="145.0" text="Codigo Itens" />
+              </columns>
+            </TableView>
+            <ComboBox layoutX="129.0" layoutY="60.0" prefHeight="39.0" prefWidth="292.0" />
+            <TextField layoutX="831.0" layoutY="105.0" prefHeight="39.0" prefWidth="163.0" />
+            <Label layoutX="765.0" layoutY="111.0" text="Valor:" />
+            <Label layoutX="765.0" layoutY="157.0" text="Horas:" />
+            <TextField layoutX="831.0" layoutY="151.0" prefHeight="39.0" prefWidth="163.0" />
+            <CheckBox layoutX="647.0" layoutY="121.0" mnemonicParsing="false" text="Pago?" />
+            <Button layoutX="428.0" layoutY="60.0" mnemonicParsing="false" text="Incluir" />
+            <Button layoutX="511.0" layoutY="60.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="243.0" text="Adicionar Item de Pedido" />
+            <DatePicker layoutX="157.0" layoutY="115.0" prefHeight="39.0" prefWidth="156.0" />
+            <Label layoutX="47.0" layoutY="121.0" text="Data Pedido:" />
+            <Label layoutX="319.0" layoutY="121.0" text="Data Finalizado:" />
+            <DatePicker layoutX="453.0" layoutY="115.0" prefHeight="39.0" prefWidth="157.0" />
+            <TableView layoutX="9.0" layoutY="195.0" prefHeight="243.0" prefWidth="1007.0">
+               <columns>
+                  <TableColumn text="Ordem" />
+                  <TableColumn prefWidth="111.0" text="Data Pedido" />
+                  <TableColumn minWidth="0.0" prefWidth="143.0" text="Data Finalizado" />
+                  <TableColumn minWidth="7.0" prefWidth="88.0" text="Custo" />
+                  <TableColumn minWidth="7.0" prefWidth="88.0" text="Valor" />
+                  <TableColumn minWidth="7.0" prefWidth="88.0" text="Horas" />
+                  <TableColumn minWidth="7.0" prefWidth="357.0" text="Funcionario" />
+                  <TableColumn minWidth="7.0" prefWidth="51.0" text="Pago" />
+               </columns>
+            </TableView>
+            <Label layoutX="9.0" layoutY="161.0" text="Lista de Pedidos:" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
