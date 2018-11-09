@@ -6,27 +6,6 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -58,8 +37,6 @@
             <ComboBox layoutX="119.0" layoutY="60.0" prefHeight="39.0" prefWidth="302.0" />
             <TextField layoutX="831.0" layoutY="105.0" prefHeight="39.0" prefWidth="180.0" />
             <Label layoutX="774.0" layoutY="111.0" text="Marca:" />
-            <Label layoutX="516.0" layoutY="111.0" text="Cliente:" />
-            <TextField layoutX="579.0" layoutY="105.0" prefHeight="39.0" prefWidth="188.0" />
          </children>
       </Pane>
    </center>

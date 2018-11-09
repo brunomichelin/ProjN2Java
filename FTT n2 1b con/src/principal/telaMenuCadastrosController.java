@@ -25,7 +25,7 @@ public class telaMenuCadastrosController {
 	private Button btnOrcamentos;
 	@FXML
 	private Button btnFerramentas;
-	
+	/*
 	@FXML
 	protected void handlerOpenFileButton(ActionEvent event) {
 		System.out.println("Vai corinthians!");
@@ -71,5 +71,5 @@ public class telaMenuCadastrosController {
 	@FXML
 	protected void btnFerramentas_OnClick(ActionEvent event) {
 		(new Ajudante()).AbrirTela("telaFerramentas.fxml", "telaFerramentas.css", "Ferramentas");
-	}
+	}*/
 }

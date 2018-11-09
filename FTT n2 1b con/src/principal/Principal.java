@@ -19,6 +19,8 @@ public class Principal extends Application {
 		
 		System.out.println(new Date());
 		
+		
+		DbUtil.getConnection();
 		/*
 		People p = new People(100, "ZeSilva");
 		
@@ -73,6 +75,7 @@ public class Principal extends Application {
 			
 			scene.getStylesheets().add(getClass().getResource("telaOne.css").toExternalForm());
 			
+			primaryStage.setMaximized(true);
 			primaryStage.setTitle("Menu Principal");
 			primaryStage.setScene(scene);
 			primaryStage.show();

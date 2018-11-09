@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 
 public class telaPedidosController {
 
@@ -18,7 +19,7 @@ public class telaPedidosController {
 	@FXML
 	private Button btnExcluir;
 	@FXML
-	private Button btnIncluirItemPedido;
+	private Button btnIncluirServico;
 	
 	@FXML
 	protected void handlerOpenFileButton(ActionEvent event) {
@@ -48,7 +49,7 @@ public class telaPedidosController {
 	}
 	
 	@FXML
-	protected void btnIncluirItemPedido_OnClick(ActionEvent event) {
-		(new Ajudante()).AbrirTela("telaItemPedido.fxml", "telaItemPedido.css", "Item Pedido");
+	protected void btnIncluirServico_OnClick(ActionEvent event) {
+		
 	}
 }
