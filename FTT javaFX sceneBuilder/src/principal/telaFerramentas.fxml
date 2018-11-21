@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="599.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
+            <Button layoutX="706.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
+            <Button layoutX="785.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
+            <Button layoutX="871.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
+            <Label layoutX="18.0" layoutY="20.0" text="Nome:" />
+            <Label layoutX="18.0" layoutY="66.0" text="Fornecedor:" />
+            <Label layoutX="778.0" layoutY="66.0" text="Valor:" />
+            <Label layoutX="586.0" layoutY="66.0" text="Garantia:" />
+            <Label layoutX="13.0" layoutY="124.0" text="Lista de Ferramentas:" />
+            <TextField layoutX="77.0" layoutY="14.0" prefHeight="39.0" prefWidth="342.0" />
+            <TextField layoutX="664.0" layoutY="60.0" prefHeight="39.0" prefWidth="103.0" />
+            <TextField layoutX="831.0" layoutY="60.0" prefHeight="39.0" prefWidth="163.0" />
+            <TableView layoutX="13.0" layoutY="157.0" prefHeight="390.0" prefWidth="1005.0">
+              <columns>
+                <TableColumn prefWidth="311.0" text="Nome" />
+                <TableColumn prefWidth="190.0" text="Fornecedor" />
+                  <TableColumn minWidth="0.0" prefWidth="86.0" text="Garantia" />
+                  <TableColumn minWidth="0.0" prefWidth="89.0" text="Valor" />
+                  <TableColumn prefWidth="182.0" text="Marcar" />
+                  <TableColumn prefWidth="145.0" text="Data Comprado" />
+              </columns>
+            </TableView>
+            <Label layoutX="432.0" layoutY="20.0" text="Data Comprada:" />
+            <DatePicker layoutX="429.0" layoutY="60.0" prefHeight="39.0" prefWidth="147.0" />
+            <ComboBox layoutX="119.0" layoutY="60.0" prefHeight="39.0" prefWidth="302.0" />
+            <TextField layoutX="831.0" layoutY="105.0" prefHeight="39.0" prefWidth="163.0" />
+            <Label layoutX="774.0" layoutY="111.0" text="Marca:" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

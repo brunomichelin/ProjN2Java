@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="672.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
+            <Button layoutX="591.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
+            <Button layoutX="863.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
+            <Button layoutX="780.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
+            <Label layoutX="18.0" layoutY="20.0" text="Nome:" />
+            <Label layoutX="18.0" layoutY="66.0" text="Email:" />
+            <Label layoutX="278.0" layoutY="113.0" text="Telefone:" />
+            <Label layoutX="15.0" layoutY="113.0" text="Celular:" />
+            <Label layoutX="18.0" layoutY="153.0" text="Lista de Clientes:" />
+            <TextField layoutX="99.0" layoutY="14.0" prefHeight="39.0" prefWidth="320.0" />
+            <TextField layoutX="99.0" layoutY="60.0" prefHeight="39.0" prefWidth="319.0" />
+            <TextField layoutX="99.0" layoutY="107.0" prefHeight="39.0" prefWidth="162.0" />
+            <TextField layoutX="359.0" layoutY="107.0" prefHeight="39.0" prefWidth="163.0" />
+            <TableView layoutX="14.0" layoutY="181.0" prefHeight="366.0" prefWidth="1001.0">
+              <columns>
+                <TableColumn prefWidth="315.0" text="Nome" />
+                <TableColumn minWidth="0.0" prefWidth="241.0" text="Email" />
+                  <TableColumn minWidth="0.0" prefWidth="110.0" text="Celular" />
+                  <TableColumn minWidth="0.0" prefWidth="121.0" text="Telefone" />
+                  <TableColumn minWidth="0.0" prefWidth="134.0" text="Data Nasc." />
+              </columns>
+            </TableView>
+            <Label layoutX="432.0" layoutY="26.0" text="Data Nascimento:" />
+            <DatePicker layoutX="429.0" layoutY="60.0" prefHeight="39.0" prefWidth="147.0" />
+            <Button layoutX="591.0" layoutY="60.0" mnemonicParsing="false" text="Cadastrar Veículos" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
