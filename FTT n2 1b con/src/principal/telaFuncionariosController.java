@@ -3,7 +3,10 @@ package principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class telaFuncionariosController {
 
@@ -17,6 +20,32 @@ public class telaFuncionariosController {
 	private Button btnConsultar;
 	@FXML
 	private Button btnExcluir;
+	@FXML
+	private TextField txtNome;
+	@FXML
+	private TextField txtCelular;
+	@FXML
+	private TextField txtTelefone;
+	@FXML
+	private TextField txtEmail;
+	@FXML
+	private TextField txtCPF;
+	@FXML
+	private TextField txtCidade;
+	@FXML
+	private TextField txtEstado;
+	@FXML
+	private TextField txtBairro;
+	@FXML
+	private TextField txtEndereco;
+	@FXML
+	private TextField txtNumero;
+	@FXML
+	private TextField txtSalario;
+	@FXML
+	private DatePicker txtDataNascimento;
+	@FXML
+	private TableView<Funcionario> tbvFuncionarios;
 	
 	@FXML
 	protected void handlerOpenFileButton(ActionEvent event) {

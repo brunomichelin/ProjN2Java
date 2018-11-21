@@ -1,9 +1,14 @@
 package principal;
 
+import com.sun.security.ntlm.Client;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class telaClientesController {
 	
@@ -19,6 +24,18 @@ public class telaClientesController {
 	private Button btnExcluir;
 	@FXML
 	private Button btnIncluirVeiculo;
+	@FXML
+	private TextField txtNome;
+	@FXML
+	private TextField txtEmail;
+	@FXML
+	private TextField txtCelular;
+	@FXML
+	private TextField txtTelefone;
+	@FXML
+	private DatePicker txtDataNascimento;
+	@FXML
+	private TableView<Cliente> tbvClientes;
 	
 	@FXML
 	protected void handlerOpenFileButton(ActionEvent event) {

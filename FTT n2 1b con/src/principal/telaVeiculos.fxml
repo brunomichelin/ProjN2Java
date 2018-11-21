@@ -5,21 +5,21 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaVeiculosController">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="514.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
-            <Button layoutX="621.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
-            <Button layoutX="700.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
-            <Button layoutX="786.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
+            <Button fx:id="btnConsultar" layoutX="514.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
+            <Button fx:id="btnIncluir" layoutX="621.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
+            <Button fx:id="btnAlterar" layoutX="700.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
+            <Button fx:id="btnExcluir" layoutX="786.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
             <Label layoutX="18.0" layoutY="20.0" text="Cliente:" />
             <Label layoutX="18.0" layoutY="66.0" text="Marca:" />
             <Label layoutX="470.0" layoutY="111.0" text="Ano Fabricado:" />
             <Label layoutX="13.0" layoutY="124.0" text="Lista de Veículos:" />
-            <TextField layoutX="81.0" layoutY="14.0" prefHeight="39.0" prefWidth="342.0" />
-            <TextField layoutX="595.0" layoutY="105.0" prefHeight="39.0" prefWidth="73.0" />
-            <TableView layoutX="13.0" layoutY="157.0" prefHeight="390.0" prefWidth="1005.0">
+            <TextField fx:id="txtCliente" layoutX="81.0" layoutY="14.0" prefHeight="39.0" prefWidth="342.0" />
+            <TextField fx:id="txtAnoFabricado" layoutX="595.0" layoutY="105.0" prefHeight="39.0" prefWidth="73.0" />
+            <TableView fx:id="tbvVeiculos" layoutX="13.0" layoutY="157.0" prefHeight="390.0" prefWidth="1005.0">
               <columns>
                 <TableColumn prefWidth="256.0" text="Cliente" />
                 <TableColumn prefWidth="209.0" text="Marca" />
@@ -29,12 +29,12 @@
                   <TableColumn prefWidth="102.0" text="Conserto" />
               </columns>
             </TableView>
-            <ComboBox layoutX="81.0" layoutY="60.0" prefHeight="39.0" prefWidth="344.0" />
-            <TextField layoutX="512.0" layoutY="60.0" prefHeight="39.0" prefWidth="350.0" />
+            <ComboBox fx:id="cmbMarcas" layoutX="81.0" layoutY="60.0" prefHeight="39.0" prefWidth="344.0" />
+            <TextField fx:id="txtModelo" layoutX="512.0" layoutY="60.0" prefHeight="39.0" prefWidth="350.0" />
             <Label layoutX="437.0" layoutY="66.0" text="Modelo:" />
-            <TextField layoutX="789.0" layoutY="105.0" prefHeight="39.0" prefWidth="73.0" />
+            <TextField fx:id="txtAnoModelo" layoutX="789.0" layoutY="105.0" prefHeight="39.0" prefWidth="73.0" />
             <Label layoutX="683.0" layoutY="111.0" text="Ano Modelo:" />
-            <DatePicker layoutX="301.0" layoutY="105.0" prefHeight="39.0" prefWidth="159.0" />
+            <DatePicker fx:id="txtConserto" layoutX="301.0" layoutY="105.0" prefHeight="39.0" prefWidth="159.0" />
             <Label layoutX="215.0" layoutY="111.0" text="Conserto:" />
          </children>
       </Pane>

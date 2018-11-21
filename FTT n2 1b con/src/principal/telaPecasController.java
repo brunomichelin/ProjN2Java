@@ -3,7 +3,11 @@ package principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class telaPecasController {
 
@@ -17,6 +21,20 @@ public class telaPecasController {
 	private Button btnConsultar;
 	@FXML
 	private Button btnExcluir;
+	@FXML
+	private TextField txtNome;
+	@FXML
+	private DatePicker txtDataComprada;
+	@FXML
+	private TextField txtGarantia;
+	@FXML
+	private TextField txtValor;
+	@FXML
+	private TextField txtMarca;
+	@FXML
+	private ComboBox<Fornecedor> cmbFornecedores;
+	@FXML
+	private TableView<Peca> tbvPecas;
 	
 	@FXML
 	protected void handlerOpenFileButton(ActionEvent event) {

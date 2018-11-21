@@ -5,23 +5,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaPecasController">
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="664.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
-            <Button layoutX="771.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
-            <Button layoutX="850.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
-            <Button layoutX="936.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
+            <Button fx:id="btnConsultar" layoutX="664.0" layoutY="14.0" mnemonicParsing="false" text="Consultar" />
+            <Button fx:id="btnIncluir" layoutX="771.0" layoutY="14.0" mnemonicParsing="false" text="Incluir" />
+            <Button fx:id="btnAlterar" layoutX="850.0" layoutY="14.0" mnemonicParsing="false" text="Alterar" />
+            <Button fx:id="btnExcluir" layoutX="936.0" layoutY="14.0" mnemonicParsing="false" text="Excluir" />
             <Label layoutX="18.0" layoutY="20.0" text="Nome:" />
             <Label layoutX="18.0" layoutY="66.0" text="Fornecedor:" />
             <Label layoutX="778.0" layoutY="66.0" text="Valor:" />
             <Label layoutX="586.0" layoutY="66.0" text="Garantia:" />
             <Label layoutX="13.0" layoutY="124.0" text="Lista de Peças:" />
-            <TextField layoutX="77.0" layoutY="14.0" prefHeight="39.0" prefWidth="342.0" />
-            <TextField layoutX="664.0" layoutY="60.0" prefHeight="39.0" prefWidth="103.0" />
-            <TextField layoutX="831.0" layoutY="60.0" prefHeight="39.0" prefWidth="181.0" />
-            <TableView layoutX="5.0" layoutY="150.0" prefHeight="397.0" prefWidth="1013.0">
+            <TextField fx:id="txtNome" layoutX="77.0" layoutY="14.0" prefHeight="39.0" prefWidth="342.0" />
+            <TextField fx:id="txtGarantia" layoutX="664.0" layoutY="60.0" prefHeight="39.0" prefWidth="103.0" />
+            <TextField fx:id="txtValor" layoutX="831.0" layoutY="60.0" prefHeight="39.0" prefWidth="181.0" />
+            <TableView fx:id="tbvPecas" layoutX="5.0" layoutY="150.0" prefHeight="397.0" prefWidth="1013.0">
               <columns>
                 <TableColumn prefWidth="263.0" text="Nome" />
                 <TableColumn prefWidth="184.0" text="Fornecedor" />
@@ -33,9 +33,9 @@
               </columns>
             </TableView>
             <Label layoutX="429.0" layoutY="26.0" text="Data Comprada:" />
-            <DatePicker layoutX="429.0" layoutY="60.0" prefHeight="39.0" prefWidth="147.0" />
-            <ComboBox layoutX="119.0" layoutY="60.0" prefHeight="39.0" prefWidth="302.0" />
-            <TextField layoutX="831.0" layoutY="105.0" prefHeight="39.0" prefWidth="180.0" />
+            <DatePicker fx:id="txtDataComprada" layoutX="429.0" layoutY="60.0" prefHeight="39.0" prefWidth="147.0" />
+            <ComboBox fx:id="cmbFornecedores" layoutX="119.0" layoutY="60.0" prefHeight="39.0" prefWidth="302.0" />
+            <TextField fx:id="txtMarca" layoutX="831.0" layoutY="105.0" prefHeight="39.0" prefWidth="180.0" />
             <Label layoutX="774.0" layoutY="111.0" text="Marca:" />
          </children>
       </Pane>

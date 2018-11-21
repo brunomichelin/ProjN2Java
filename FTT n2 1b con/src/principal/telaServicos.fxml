@@ -6,23 +6,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaMenuCadastrosController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.telaServicosController">
    <center>
       <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="566.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="647.0" layoutY="14.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Consultar">
+            <Button fx:id="btnConsultar" layoutX="647.0" layoutY="14.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Consultar">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button layoutX="754.0" layoutY="14.0" mnemonicParsing="false" text="Incluir">
+            <Button fx:id="btnIncluir" layoutX="754.0" layoutY="14.0" mnemonicParsing="false" text="Incluir">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button layoutX="833.0" layoutY="14.0" mnemonicParsing="false" text="Alterar">
+            <Button fx:id="btnAlterar" layoutX="833.0" layoutY="14.0" mnemonicParsing="false" text="Alterar">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button layoutX="919.0" layoutY="14.0" mnemonicParsing="false" text="Excluir">
+            <Button fx:id="btnExcluir" layoutX="919.0" layoutY="14.0" mnemonicParsing="false" text="Excluir">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -30,15 +30,15 @@
             <Label layoutX="18.0" layoutY="55.0" text="Funcionário:" />
             <Label layoutX="773.0" layoutY="53.0" text="Custo:" />
             <Label layoutX="10.0" layoutY="165.0" text="Lista de Serviços:" />
-            <TextField layoutX="77.0" layoutY="14.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="434.0">
+            <TextField fx:id="txtNome" layoutX="77.0" layoutY="14.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="434.0">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TextField layoutX="831.0" layoutY="51.0" prefHeight="30.0" prefWidth="163.0">
+            <TextField fx:id="txtCusto" layoutX="831.0" layoutY="51.0" prefHeight="30.0" prefWidth="163.0">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TableView layoutX="10.0" layoutY="192.0" prefHeight="356.0" prefWidth="628.0">
+            <TableView fx:id="tbvServicos" layoutX="10.0" layoutY="192.0" prefHeight="356.0" prefWidth="628.0">
               <columns>
                 <TableColumn prefWidth="285.0" text="Nome" />
                   <TableColumn prefWidth="122.0" text="Custo" />
@@ -46,49 +46,49 @@
                   <TableColumn prefWidth="91.0" text="Horas" />
               </columns>
             </TableView>
-            <ComboBox layoutX="125.0" layoutY="53.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="292.0" />
-            <TextField layoutX="831.0" layoutY="85.0" prefHeight="30.0" prefWidth="163.0">
+            <ComboBox fx:id="cmbFuncionarios" layoutX="125.0" layoutY="53.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="292.0" />
+            <TextField fx:id="txtValor" layoutX="831.0" layoutY="85.0" prefHeight="30.0" prefWidth="163.0">
                <font>
                   <Font size="14.0" />
                </font></TextField>
             <Label layoutX="775.0" layoutY="87.0" text="Valor:" />
-            <ComboBox layoutX="125.0" layoutY="91.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="292.0" />
+            <ComboBox fx:id="cmbFerramentas" layoutX="125.0" layoutY="91.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="292.0" />
             <Label layoutX="19.0" layoutY="93.0" text="Ferramenta:" />
             <Label layoutX="67.0" layoutY="131.0" text="Peça:" />
-            <ComboBox layoutX="125.0" layoutY="130.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="292.0" />
-            <Button fx:id="btnFuncionarios" layoutX="435.0" layoutY="53.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Incluir">
+            <ComboBox fx:id="cmbPecas" layoutX="125.0" layoutY="130.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="292.0" />
+            <Button fx:id="btnIncluirFuncionario" layoutX="435.0" layoutY="53.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Incluir">
                <font>
                   <Font size="14.0" />
                </font></Button>
             <Label layoutX="772.0" layoutY="124.0" text="Horas:" />
-            <TextField layoutX="831.0" layoutY="122.0" prefHeight="30.0" prefWidth="163.0">
+            <TextField fx:id="txtHoras" layoutX="831.0" layoutY="122.0" prefHeight="30.0" prefWidth="163.0">
                <font>
                   <Font size="14.0" />
                </font></TextField>
-            <TableView layoutX="647.0" layoutY="192.0" prefHeight="100.0" prefWidth="368.0">
+            <TableView fx:id="tbvPecas" layoutX="647.0" layoutY="192.0" prefHeight="100.0" prefWidth="368.0">
                <columns>
                   <TableColumn prefWidth="367.0" text="Nome" />
                </columns>
             </TableView>
             <Label layoutX="647.0" layoutY="165.0" text="Lista de Peças:" />
             <Label layoutX="647.0" layoutY="292.0" text="Lista de Ferramentas:" />
-            <TableView layoutX="645.0" layoutY="319.0" prefHeight="100.0" prefWidth="368.0">
+            <TableView fx:id="tbvFerramentas" layoutX="645.0" layoutY="319.0" prefHeight="100.0" prefWidth="368.0">
                <columns>
                   <TableColumn prefWidth="367.0" text="Nome" />
                </columns>
             </TableView>
-            <TableView layoutX="645.0" layoutY="446.0" prefHeight="100.0" prefWidth="368.0">
+            <TableView fx:id="tbvFuncionarios" layoutX="645.0" layoutY="446.0" prefHeight="100.0" prefWidth="368.0">
                <columns>
                   <TableColumn prefWidth="367.0" text="Nome" />
                </columns>
             </TableView>
             <Label layoutX="645.0" layoutY="419.0" text="Lista de Funcionários:" />
-            <Button fx:id="btnFerramentas" layoutX="435.0" layoutY="91.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Incluir">
+            <Button fx:id="btnIncluirFerramenta" layoutX="435.0" layoutY="91.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Incluir">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnPecas" layoutX="435.0" layoutY="130.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Incluir">
+            <Button fx:id="btnIncluirPeca" layoutX="435.0" layoutY="130.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" text="Incluir">
                <font>
                   <Font size="14.0" />
                </font>
