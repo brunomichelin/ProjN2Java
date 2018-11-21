@@ -1,11 +1,17 @@
 package principal;
 
+import java.time.ZoneId;
+import java.util.Date;
+
 import com.sun.security.ntlm.Client;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,9 +50,28 @@ public class telaClientesController {
 		
 	}
 	
+	private void recarregarTbvClientes() {
+		
+	}
+	
 	@FXML
 	protected void btnIncluir_OnClick(ActionEvent event) {
+		Cliente cliente = new Cliente();
 		
+		cliente.setNome(txtNome.getText());
+		cliente.setEmail(txtEmail.getText());
+		cliente.setTelefone(txtTelefone.getText());
+		cliente.setCelular(txtCelular.getText());
+		cliente.setDataNascimento(Date.from(txtDataNascimento.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		
+		ClienteDAO clienteDAO = new ClienteDAO();
+		
+		boolean successInclusao = clienteDAO.Incluir(cliente);
+		
+		Alert alerta = new Alert(AlertType.INFORMATION);
+		alerta.setTitle("Informação");
+		alerta.setContentText(successInclusao ? "Cliente inserido com sucesso" : "Erro ao inserir cliente");
+		alerta.show();
 	}
 	
 	@FXML
