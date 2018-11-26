@@ -57,7 +57,7 @@ public class VeiculoDAO {
 		return null;
 	}
 
-	public ArrayList<Veiculo> BuscarPecas() {
+	public ArrayList<Veiculo> BuscarVeiculos() {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM TB_VEICULO");
 
