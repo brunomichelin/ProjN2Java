@@ -96,7 +96,7 @@ public class telaPedidosController {
 		
 		PedidoDAO pedidoDAO = new PedidoDAO();
 		
-		boolean sucessoAlterar = clienteDAO.Alterar(pedido);
+		boolean sucessoAlterar = pedidoDAO.Alterar(pedido);
 		
 		Alert alerta = new Alert(AlertType.INFORMATION);
 		alerta.setTitle("Informação");

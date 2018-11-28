@@ -1,6 +1,8 @@
 package principal;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Servico implements Serializable {
 
@@ -14,7 +16,25 @@ public class Servico implements Serializable {
 	private Funcionario[] funcionarios;
 	private Ferramenta[] ferramentas;
 	private Peca[] pecas;
-	
+		
+	public Servico() {
+		
+	}
+
+	public Servico(ResultSet result) {
+		try {
+			setCodigo(result.getInt("COD_SERVICO"));
+			//setFornecedor((new FornecedorDAO()).PesquisarCodigo(result.getInt("COD_FORNECEDOR")));
+			setNome(result.getString("NOME_SERVICO"));
+			//setDataComprada(result.getDate("DATA_COMPRADA"));
+			//setGarantia(result.getDouble("GARANTIA_PECA"));
+			setValor(result.getDouble("VALOR_SERVICO"));
+			//setMarca(result.getString("MARCA_PECA"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

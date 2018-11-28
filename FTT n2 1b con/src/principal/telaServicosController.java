@@ -1,6 +1,7 @@
 package principal;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javafx.collections.ObservableList;
@@ -56,6 +57,10 @@ public class telaServicosController {
 	private TableView<Funcionario> tbvFuncionarios;
 	
 	private Servico servico = new Servico();
+	
+	private Ferramenta[] ferramentas = new Ferramenta[100];
+	private Peca[] pecas = new Peca[100];
+	private Funcionario[] funcionarios = new Funcionario[100];
 
 	public telaServicosController() {
 		recarregarTbvServicos();
