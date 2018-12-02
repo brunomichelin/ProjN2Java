@@ -12,9 +12,9 @@ public class DbUtil {
 
 		try {
 			String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-			String url = "jdbc:sqlserver://DESKTOP-4MHF9P8\\SQLEXPRESS;Database=DB_MECANICO";
+			String url = "jdbc:sqlserver://DESKTOP-TAJ147E\\SQLEXPRESS:1433;Database=DB_MECANICO";
 			String user = "sa";
-			String password = "1q2w3e4r5t6y";
+			String password = "123456";
 
 			Class.forName(driver); // Verifica se o driver esta no CLASSPATH
 

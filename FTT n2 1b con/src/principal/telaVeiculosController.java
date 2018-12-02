@@ -1,21 +1,29 @@
 package principal;
 
+import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class telaVeiculosController {
+public class telaVeiculosController implements Initializable {
 	
 	@FXML //Annotation
 	private Label labelStatus;
@@ -41,7 +49,19 @@ public class telaVeiculosController {
 	private TextField txtAnoModelo;
 	@FXML
 	private TableView<Veiculo> tbvVeiculos;
-	
+	@FXML
+    private TableColumn<Veiculo, String> colCliente;
+    @FXML
+    private TableColumn<Veiculo, String> colMarca;
+    @FXML
+    private TableColumn<Veiculo, String> colModelo;
+    @FXML
+    private TableColumn<Veiculo, String> colAnoFabricado;
+    @FXML
+    private TableColumn<Veiculo, String> colAnoModelo;
+    @FXML
+    private TableColumn<Veiculo, String> colConserto;
+    
 	private Veiculo veiculo = new Veiculo();
 	
 	public telaVeiculosController() {
@@ -56,7 +76,21 @@ public class telaVeiculosController {
 	}
 	
 	private void recarregarTbvVeiculos() {
-		tbvVeiculos.setItems((ObservableList<Veiculo>) (new VeiculoDAO()).BuscarVeiculos());
+		tbvVeiculos.setItems(FXCollections.observableArrayList((new VeiculoDAO()).BuscarVeiculos()));
+	}
+	
+	@FXML
+	protected void tbvVeiculos_OnSelectedRow() {
+		if (tbvVeiculos.getSelectionModel().getSelectedItem() != null) {
+	        veiculo = tbvVeiculos.getSelectionModel().getSelectedItem();
+	        
+	        txtCliente.setText(veiculo.getCliente().getNome());
+	        txtAnoFabricado.setText(String.valueOf(veiculo.getAnoFabricado()));
+	        txtAnoModelo.setText(String.valueOf(veiculo.getAnoModelo()));
+	        txtModelo.setText(veiculo.getModelo());
+	        cmbMarcas.setValue(veiculo.getMarca());
+	        txtConserto.setValue(LocalDate.parse(veiculo.getConserto(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+	    }
 	}
 	
 	@FXML
@@ -66,7 +100,7 @@ public class telaVeiculosController {
 		veiculo.setAnoFabricado(Integer.valueOf(txtAnoFabricado.getText()));
 		veiculo.setAnoModelo(Integer.valueOf(txtAnoModelo.getText()));
 		veiculo.setMarca(cmbMarcas.getValue());
-		veiculo.setConserto(Date.from(txtConserto.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		veiculo.setConserto(txtConserto.toString());
 		veiculo.setCliente((new ClienteDAO()).PesquisarNome(txtCliente.getText()));
 		
 		VeiculoDAO veiculoDAO = new VeiculoDAO();
@@ -90,7 +124,7 @@ public class telaVeiculosController {
 		veiculo.setAnoFabricado(Integer.valueOf(txtAnoFabricado.getText()));
 		veiculo.setAnoModelo(Integer.valueOf(txtAnoModelo.getText()));
 		veiculo.setMarca(cmbMarcas.getValue());
-		veiculo.setConserto(Date.from(txtConserto.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		veiculo.setConserto(txtConserto.getValue().toString());
 		veiculo.setCliente((new ClienteDAO()).PesquisarNome(txtCliente.getText()));
 		
 		VeiculoDAO veiculoDAO = new VeiculoDAO();
@@ -123,6 +157,24 @@ public class telaVeiculosController {
 		alerta.setTitle("Informação");
 		alerta.setContentText(sucessoAlterar ? "Veículo excluido com sucesso" : "Erro ao excluir veículo");
 		alerta.show();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		colCliente.setCellValueFactory(
+	            new PropertyValueFactory<>("nomeClienteC"));
+		colMarca.setCellValueFactory(
+	            new PropertyValueFactory<>("marcaC"));
+		colModelo.setCellValueFactory(
+	            new PropertyValueFactory<>("modeloC"));
+		colAnoFabricado.setCellValueFactory(
+				new PropertyValueFactory<>("noFabricadoC"));
+		colAnoModelo.setCellValueFactory(
+				new PropertyValueFactory<>("noModeloC"));
+		colConserto.setCellValueFactory(
+				new PropertyValueFactory<>("consertoC"));
+		
+		recarregarTbvVeiculos();
 	}
 	
 }

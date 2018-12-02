@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Veiculo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,12 +15,34 @@ public class Veiculo implements Serializable {
 	private Cliente cliente;
 	private Marca marca;
 	private String modelo;
-	private Date conserto;
+	private String conserto;
 	private int anoFabricado;
 	private int anoModelo;
 
-	public Veiculo() {
+	private final SimpleStringProperty clienteC;
+	private final SimpleStringProperty marcaC;
+	private final SimpleStringProperty modeloC;
+	private final SimpleStringProperty consertoC;
+	private final SimpleStringProperty anoFabricadoC;
+	private final SimpleStringProperty anoModeloC;
 
+	public Veiculo(String clienteC, String marcaC, String modeloC, String consertoC, String anoFabricadoC,
+			String anoModeloC) {
+		this.clienteC = new SimpleStringProperty(clienteC);
+		this.marcaC = new SimpleStringProperty(marcaC);
+		this.modeloC = new SimpleStringProperty(modeloC);
+		this.consertoC = new SimpleStringProperty(consertoC);
+		this.anoFabricadoC = new SimpleStringProperty(anoFabricadoC);
+		this.anoModeloC = new SimpleStringProperty(anoModeloC);
+	}
+
+	public Veiculo() {
+		this.clienteC = new SimpleStringProperty("");
+		this.marcaC = new SimpleStringProperty("");
+		this.modeloC = new SimpleStringProperty("");
+		this.consertoC = new SimpleStringProperty("");
+		this.anoFabricadoC = new SimpleStringProperty("");
+		this.anoModeloC = new SimpleStringProperty("");
 	}
 
 	public Veiculo(ResultSet result) {
@@ -27,12 +51,19 @@ public class Veiculo implements Serializable {
 			setCliente((new ClienteDAO()).PesquisarCodigo(result.getInt("COD_CLIENTE")));
 			setMarca((new MarcaDAO()).PesquisarCodigo(result.getInt("COD_MARCA")));
 			setModelo(result.getString("DESC_MODELO"));
-			setConserto(result.getDate("DATA_CONSERTO"));
+			setConserto(result.getString("DATA_CONSERTO"));
 			setAnoFabricado(result.getInt("ANO_FABRICADO"));
 			setAnoModelo(result.getInt("ANO_MODELO"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+		this.clienteC = new SimpleStringProperty(getCliente().getNome());
+		this.marcaC = new SimpleStringProperty(getMarca().getDescricao());
+		this.modeloC = new SimpleStringProperty(getModelo());
+		this.consertoC = new SimpleStringProperty(getConserto());
+		this.anoFabricadoC = new SimpleStringProperty(String.valueOf(getAnoFabricado()));
+		this.anoModeloC = new SimpleStringProperty(String.valueOf(getAnoModelo()));
 	}
 
 	public int getCodigo() {
@@ -67,11 +98,11 @@ public class Veiculo implements Serializable {
 		this.modelo = modelo;
 	}
 
-	public Date getConserto() {
+	public String getConserto() {
 		return conserto;
 	}
 
-	public void setConserto(Date conserto) {
+	public void setConserto(String conserto) {
 		this.conserto = conserto;
 	}
 

@@ -87,7 +87,7 @@ public class VeiculoDAO {
 			stmt.setInt(1, veiculo.getCliente().getCodigo());
 			stmt.setInt(2, veiculo.getMarca().getCodigo());
 			stmt.setString(3, veiculo.getModelo());
-			stmt.setDate(4, (Date) veiculo.getConserto());
+			stmt.setString(4, veiculo.getConserto());
 			stmt.setInt(5, veiculo.getAnoFabricado());
 			stmt.setInt(6, veiculo.getAnoModelo());
 
@@ -109,7 +109,7 @@ public class VeiculoDAO {
 			stmt.setInt(1, veiculo.getCliente().getCodigo());
 			stmt.setInt(2, veiculo.getMarca().getCodigo());
 			stmt.setString(3, veiculo.getModelo());
-			stmt.setDate(4, (Date) veiculo.getConserto());
+			stmt.setString(4, veiculo.getConserto());
 			stmt.setInt(5, veiculo.getAnoFabricado());
 			stmt.setInt(6, veiculo.getAnoModelo());
 			stmt.setInt(7, veiculo.getCodigo());

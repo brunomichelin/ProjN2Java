@@ -78,50 +78,59 @@ public class ClienteDAO {
 		return null;
 	}
 
-	public boolean Incluir(Cliente cliente) {
+	public int Incluir(Cliente cliente) {
 		try {
 			
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO TB_CLIENTE "
 					+ "(NOME_CLIENTE, EMAIL_CLIENTE, CELULAR_CLIENTE, TELEFONE_CLIENTE, DATA_NASC_CLIENTE) "
-					+ "VALUES ('?', '?' , '?', '?', '?')");
+					+ "VALUES (?, ? , ?, ?, ?)");
 			
 			//stmt.setInt(1, cliente.getCodigo());
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getEmail());
 			stmt.setString(3, cliente.getCelular());
 			stmt.setString(4, cliente.getTelefone());
-			stmt.setDate(5, (Date) cliente.getDataNascimento());
+			stmt.setString(5, cliente.getDataNascimento());
 			
-			return stmt.execute();
+			stmt.executeUpdate();
+			
+			stmt = connection.prepareStatement("SELECT MAX(COD_CLIENTE) FROM TB_CLIENTE");
+			
+			ResultSet rs = (stmt.executeQuery());
+			
+			rs.next();
+			
+			return rs.getInt(1);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return false;
+		
+		return -1;
 	}
 	
-	public boolean Alterar(Cliente cliente) {
+	public int Alterar(Cliente cliente) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("UPDATE TB_CLIENTE SET "
-					+ "NOME_CLIENTE = '?', EMAIL_CLIENTE = '?', CELULAR_CLIENTE = '?', "
-					+ "TELEFONE_CLIENTE ='?', DATA_NASC_CLIENTE = '?' "
+					+ "NOME_CLIENTE = ?, EMAIL_CLIENTE = ?, CELULAR_CLIENTE = ?, "
+					+ "TELEFONE_CLIENTE = ?, DATA_NASC_CLIENTE = ? "
 					+ "WHERE COD_CLIENTE = ?");
 			
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getEmail());
 			stmt.setString(3, cliente.getCelular());
 			stmt.setString(4, cliente.getTelefone());
-			stmt.setDate(5, (Date) cliente.getDataNascimento()); //Convert util for sql librarys.
+			stmt.setString(5, cliente.getDataNascimento());
 			stmt.setInt(6, cliente.getCodigo());
 			
-			return stmt.execute();
+			return stmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return -1;
 	}
 	
 	public boolean Excluir(int codigo) {

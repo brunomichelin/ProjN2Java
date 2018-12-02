@@ -1,23 +1,33 @@
 package principal;
 
+import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.ResourceBundle;
 
 import com.sun.security.ntlm.Client;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-public class telaClientesController {
+public class telaClientesController implements Initializable {
 	
 	@FXML //Annotation
 	private Label labelStatus;
@@ -43,10 +53,32 @@ public class telaClientesController {
 	private DatePicker txtDataNascimento;
 	@FXML
 	private TableView<Cliente> tbvClientes;
-	
+    @FXML
+    private TableColumn<Cliente, String> colNome;
+    @FXML
+    private TableColumn<Cliente, String> colEmail;
+    @FXML
+    private TableColumn<Cliente, String> colCelular;
+    @FXML
+    private TableColumn<Cliente, String> colTelefone;
+    @FXML
+    private TableColumn<Cliente, String> colDataNasc;
+    
 	private Cliente cliente = new Cliente();
 	
-	public telaClientesController() {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		colNome.setCellValueFactory(
+	            new PropertyValueFactory<>("nomeC"));
+		colEmail.setCellValueFactory(
+	            new PropertyValueFactory<>("emailC"));
+		colCelular.setCellValueFactory(
+	            new PropertyValueFactory<>("celularC"));
+		colTelefone.setCellValueFactory(
+				new PropertyValueFactory<>("telefoneC"));
+		colDataNasc.setCellValueFactory(
+				new PropertyValueFactory<>("dataNascimentoC"));
+		
 		recarregarTbvClientes();
 	}
 	
@@ -58,7 +90,8 @@ public class telaClientesController {
 	}
 	
 	private void recarregarTbvClientes() {
-		tbvClientes.setItems((ObservableList<Cliente>) (new ClienteDAO()).BuscarClientes());
+		ObservableList<Cliente> obsClientes = FXCollections.observableArrayList((new ClienteDAO()).BuscarClientes());
+		tbvClientes.setItems(obsClientes);
 	}
 	
 	@FXML
@@ -68,16 +101,20 @@ public class telaClientesController {
 		cliente.setEmail(txtEmail.getText());
 		cliente.setTelefone(txtTelefone.getText());
 		cliente.setCelular(txtCelular.getText());
-		cliente.setDataNascimento(Date.from(txtDataNascimento.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		cliente.setDataNascimento(txtDataNascimento.getValue().toString());
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		
-		boolean successInclusao = clienteDAO.Incluir(cliente);
+		int codigoInclusao = clienteDAO.Incluir(cliente);
+		
+		cliente.setCodigo(codigoInclusao);
 		
 		Alert alerta = new Alert(AlertType.INFORMATION);
 		alerta.setTitle("Informação");
-		alerta.setContentText(successInclusao ? "Cliente inserido com sucesso" : "Erro ao inserir cliente");
+		alerta.setContentText(codigoInclusao > 0 ? "Cliente inserido com sucesso" : "Erro ao inserir cliente");
 		alerta.show();
+		
+		recarregarTbvClientes();
 	}
 	
 	@FXML
@@ -92,16 +129,18 @@ public class telaClientesController {
 		cliente.setEmail(txtEmail.getText());
 		cliente.setTelefone(txtTelefone.getText());
 		cliente.setCelular(txtCelular.getText());
-		cliente.setDataNascimento(Date.from(txtDataNascimento.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+		cliente.setDataNascimento(txtDataNascimento.getValue().toString());
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		
-		boolean sucessoAlterar = clienteDAO.Alterar(cliente);
+		int sucessoAlterar = clienteDAO.Alterar(cliente);
 		
 		Alert alerta = new Alert(AlertType.INFORMATION);
 		alerta.setTitle("Informação");
-		alerta.setContentText(sucessoAlterar ? "Cliente alterado com sucesso" : "Erro ao alterar cliente");
+		alerta.setContentText(sucessoAlterar > 0 ? "Cliente alterado com sucesso" : "Erro ao alterar cliente");
 		alerta.show();
+		
+		recarregarTbvClientes();
 	}
 	
 	@FXML
@@ -109,6 +148,19 @@ public class telaClientesController {
 		
 		
 		
+	}
+	
+	@FXML
+	protected void tbvCliente_OnSelectedRow() {
+		if (tbvClientes.getSelectionModel().getSelectedItem() != null) {
+	        cliente = tbvClientes.getSelectionModel().getSelectedItem();
+	        
+	        txtNome.setText(cliente.getNome());
+	        txtEmail.setText(cliente.getEmail());
+	        txtCelular.setText(cliente.getCelular());
+	        txtTelefone.setText(cliente.getTelefone());
+	        txtDataNascimento.setValue(LocalDate.parse(cliente.getDataNascimento(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+	    }
 	}
 	
 	@FXML
@@ -127,10 +179,14 @@ public class telaClientesController {
 		alerta.setTitle("Informação");
 		alerta.setContentText(sucessoAlterar ? "Cliente excluido com sucesso" : "Erro ao excluir cliente");
 		alerta.show();
+		
+		recarregarTbvClientes();
 	}
 	
 	@FXML
 	protected void btnIncluirVeiculo_OnClick(ActionEvent event) {
 		(new Ajudante()).AbrirTela("telaVeiculos.fxml", "telaVeiculos.css", "Veículos");
 	}
+
+	
 }
