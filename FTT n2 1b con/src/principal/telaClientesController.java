@@ -173,11 +173,11 @@ public class telaClientesController implements Initializable {
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		
-		boolean sucessoAlterar = clienteDAO.Excluir(cliente.getCodigo());
+		int sucessoAlterar = clienteDAO.Excluir(cliente.getCodigo());
 		
 		Alert alerta = new Alert(AlertType.INFORMATION);
 		alerta.setTitle("Informação");
-		alerta.setContentText(sucessoAlterar ? "Cliente excluido com sucesso" : "Erro ao excluir cliente");
+		alerta.setContentText(sucessoAlterar > 0 ? "Cliente excluido com sucesso" : "Erro ao excluir cliente");
 		alerta.show();
 		
 		recarregarTbvClientes();

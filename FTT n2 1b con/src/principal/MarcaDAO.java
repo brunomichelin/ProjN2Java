@@ -36,7 +36,7 @@ public class MarcaDAO {
 
 	public Marca PesquisarNome(String nome) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM TB_MARCA WHERE DESC_MARCA LIKE '%?%'");
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM TB_MARCA WHERE DESC_MARCA LIKE ?");
 
 			stmt.setString(1, nome);
 

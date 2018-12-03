@@ -77,6 +77,10 @@ public class Veiculo implements Serializable {
 	public Cliente getCliente() {
 		return cliente;
 	}
+	
+	public String getNomeClienteC() {
+		return clienteC.get();
+	}
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
@@ -84,6 +88,10 @@ public class Veiculo implements Serializable {
 
 	public Marca getMarca() {
 		return marca;
+	}
+	
+	public String getMarcaC() {
+		return marcaC.get();
 	}
 
 	public void setMarca(Marca marca) {
@@ -93,6 +101,10 @@ public class Veiculo implements Serializable {
 	public String getModelo() {
 		return modelo;
 	}
+	
+	public String getModeloC() {
+		return modeloC.get();
+	}
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
@@ -100,6 +112,10 @@ public class Veiculo implements Serializable {
 
 	public String getConserto() {
 		return conserto;
+	}
+	
+	public String getConsertoC() {
+		return consertoC.get();
 	}
 
 	public void setConserto(String conserto) {
@@ -109,6 +125,10 @@ public class Veiculo implements Serializable {
 	public int getAnoFabricado() {
 		return anoFabricado;
 	}
+	
+	public String getAnoFabricadoC() {
+		return anoFabricadoC.get();
+	}
 
 	public void setAnoFabricado(int anoFabricado) {
 		this.anoFabricado = anoFabricado;
@@ -116,6 +136,10 @@ public class Veiculo implements Serializable {
 
 	public int getAnoModelo() {
 		return anoModelo;
+	}
+	
+	public String getAnoModeloC() {
+		return anoModeloC.get();
 	}
 
 	public void setAnoModelo(int anoModelo) {

@@ -17,9 +17,9 @@ public class ClienteDAO {
 	public Cliente PesquisarNome(String nome) {
 		try {
 			PreparedStatement stmt = connection
-					.prepareStatement("SELECT * FROM TB_CLIENTE WHERE NOME_CLIENTE LIKE '%?%'");
+					.prepareStatement("SELECT * FROM TB_CLIENTE WHERE NOME_CLIENTE LIKE ?");
 
-			stmt.setString(1, nome);
+			stmt.setString(1, "%" + nome + "%");
 
 			ResultSet result = stmt.executeQuery();
 
@@ -106,7 +106,6 @@ public class ClienteDAO {
 			e.printStackTrace();
 		}
 		
-		
 		return -1;
 	}
 	
@@ -133,18 +132,18 @@ public class ClienteDAO {
 		return -1;
 	}
 	
-	public boolean Excluir(int codigo) {
+	public int Excluir(int codigo) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("DELETE TB_CLIENTE WHERE COD_CLIENTE = ?");
 
 			stmt.setInt(1, codigo);
 			
-			return stmt.execute();
+			return stmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return -1;
 	}
 }

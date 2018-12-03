@@ -77,12 +77,12 @@ public class VeiculoDAO {
 		return null;
 	}
 
-	public boolean Incluir(Veiculo veiculo) {
+	public int Incluir(Veiculo veiculo) {
 		try {
 
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO TB_VEICULO "
-					+ "(COD_CLIENTE, COD_MARCA, DESC_MODELO, DATA_CONSERTO, ANO_FABRICADO, ANO_MODELO "
-					+ "VALUES (?, ?, '?' , '?', ?, ?)");
+					+ "(COD_CLIENTE, COD_MARCA, DESC_MODELO, DATA_CONSERTO, ANO_FABRICADO, ANO_MODELO)"
+					+ "VALUES (?, ?, ?, ?, ?, ?)");
 
 			stmt.setInt(1, veiculo.getCliente().getCodigo());
 			stmt.setInt(2, veiculo.getMarca().getCodigo());
@@ -91,20 +91,28 @@ public class VeiculoDAO {
 			stmt.setInt(5, veiculo.getAnoFabricado());
 			stmt.setInt(6, veiculo.getAnoModelo());
 
-			return stmt.execute();
+			stmt.executeUpdate();
+
+			stmt = connection.prepareStatement("SELECT MAX(COD_VEICULO) FROM TB_VEICULO");
+
+			ResultSet rs = (stmt.executeQuery());
+
+			rs.next();
+
+			return rs.getInt(1);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return false;
+		return -1;
 	}
 
-	public boolean Alterar(Veiculo veiculo) {
+	public int Alterar(Veiculo veiculo) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("UPDATE TB_VEICULO SET "
-					+ "COD_CLIENTE = ?, COD_MARCA = ?, DESC_MODELO = '?', DATA_CONSERTO = '?', "
-					+ "ANO_FABRICADO = ?, ANO_MODELO = ? WHERE COD_VEICULO = ?");
+			PreparedStatement stmt = connection.prepareStatement(
+					"UPDATE TB_VEICULO SET " + "COD_CLIENTE = ?, COD_MARCA = ?, DESC_MODELO = ?, DATA_CONSERTO = ?, "
+							+ "ANO_FABRICADO = ?, ANO_MODELO = ? WHERE COD_VEICULO = ?");
 
 			stmt.setInt(1, veiculo.getCliente().getCodigo());
 			stmt.setInt(2, veiculo.getMarca().getCodigo());
@@ -114,27 +122,27 @@ public class VeiculoDAO {
 			stmt.setInt(6, veiculo.getAnoModelo());
 			stmt.setInt(7, veiculo.getCodigo());
 
-			return stmt.execute();
+			return stmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return false;
+		return -1;
 	}
 
-	public boolean Excluir(int codigo) {
+	public int Excluir(int codigo) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("DELETE TB_VEICULO WHERE COD_VEICULO = ?");
 
 			stmt.setInt(1, codigo);
 
-			return stmt.execute();
+			return stmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return false;
+		return -1;
 	}
 }
